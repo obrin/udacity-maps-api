@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+      <title>p05 neighborhood map</title>
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+      <!-- build:css styles/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"   />
+      <!-- endbower -->
+      <!-- endbuild -->
+
+      <!-- build:css styles/main.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <!-- endbuild -->
+
+      <!-- build:css styles/styles.css -->
+      <link rel="stylesheet" href="styles/styles.css">
+      <!-- endbuild -->
+
+      <!-- build:js scripts/vendor/modernizr.js -->
+      <script src="../bower_components/modernizr/modernizr.js"></script>
+      <!-- endbuild -->
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-  mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script>
+
+    </head>
+    <body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <input id="pac-input" class="controls" type="search" placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
+
+            <div id="location-lists">
+                <ul data-bind="foreach: filteredMarkers">
+                    <li data-bind="text: title, click: $parent.clickedLoc"></li>
+                </ul>
+            </div>
+        </div><!-- End list of locations and search input -->
+    </div>
+
+    <div id="map-canvas"></div>
+
+
+
+
+
+
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/knockout/dist/knockout.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap/js/affix.js"></script>
+        <script src="../bower_components/bootstrap/js/alert.js"></script>
+        <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+        <script src="../bower_components/bootstrap/js/tooltip.js"></script>
+        <script src="../bower_components/bootstrap/js/modal.js"></script>
+        <script src="../bower_components/bootstrap/js/transition.js"></script>
+        <script src="../bower_components/bootstrap/js/button.js"></script>
+        <script src="../bower_components/bootstrap/js/popover.js"></script>
+        <script src="../bower_components/bootstrap/js/carousel.js"></script>
+        <script src="../bower_components/bootstrap/js/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap/js/collapse.js"></script>
+        <script src="../bower_components/bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/apis.js -->
+        <script src="scripts/apis.js"></script>
+        <!-- endbuild -->
+
+
+</body>
+<footer>
+
+</footer>
+</html>
