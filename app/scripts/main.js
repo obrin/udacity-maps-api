@@ -4,16 +4,16 @@
   */
 
 
-var Locations = function(data) {
-  this.title = ko.observable(data.title);
-  this.lat = ko.observable(data.lat);
-  this.lng = ko.observable(data.lng);
-  };
+//var Locations = function(data) {
+//  this.title = ko.observable(data.title);
+//  this.lat = ko.observable(data.lat);
+//  this.lng = ko.observable(data.lng);
+//  };
 
-$.getJSON('scripts/model.json', function(adminData) {
-
+$.getJSON('model.json', function(adminData) {
+  "use strict";
   var info = adminData.data;
-  console.log(info);
+  //console.log(info);
 
 var ViewModel = function() {
   //var info;
@@ -47,7 +47,7 @@ var ViewModel = function() {
   // point loc to locationArray for easy access
   var loc = info;
   //var loc = self.filteredMarkers();
-  console.log(loc[0].lat);
+  //console.log(loc[0].lat);
 
   //self.filteredMarkers.subscribe(function() {
   //  return console.log(self.filteredMarkers());
@@ -104,9 +104,9 @@ var ViewModel = function() {
     google.maps.event.addListener(marker, 'click', (function(marker) {
       return function() {
         self.setLocation(marker); // set as current location
-      }
+      };
     })(marker));
-  };
+  }
 
 
   this.setLocation = function(selection) {
@@ -120,8 +120,8 @@ var ViewModel = function() {
       infowindow.open(map, selection);                      // render info window of selected marker
       //map.panTo(selection.position);                        // set center of screen to selected marker
       //console.log(selection);
-    };
-  }
+    }
+  };
 
 
   this.removeLocation = function() {
