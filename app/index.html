@@ -25,28 +25,37 @@
       <script src="../bower_components/modernizr/modernizr.js"></script>
       <!-- endbuild -->
 
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-  mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script>
 
     </head>
     <body>
 
-    <div class="container-fluid">
-        <div class="row">
-            <input id="pac-input" class="controls" type="search" placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
+    <div>
+        <div id="control">
 
-            <div id="location-lists">
+            <input id="pac-input" class="input" type="search" placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
+            <div class="cards-card">
                 <ul data-bind="foreach: filteredMarkers">
-                    <li data-bind="text: title, click: $parent.clickedLoc"></li>
+                    <li data-bind="text: title, click: $parent.setLocation"></li>
                 </ul>
+            </div><!-- End list of locations and search input -->
+
+<!--             <div class="cards-card" data-bind="foreach: fourSquare">
+                <h4>Address:</h4>
+                <p data-bind="html: $root.formattedAddress"></p>
+            </div> -->
+
+            <div class="cards-card" data-bind="foreach: markerArray">
+                <!-- <p data-bind="text: title, click: $parent.setLocation"></p> -->
+                <!-- <p data-bind="text: contact.formattedPhone"></p> -->
+                <!-- <h4>Here Now:</h4> -->
+                <!-- <p data-bind="text: hereNow.count"></p> -->
+                <!--<a data-bind="attr: {href: $root.facebook}, text: $root.facebook"></a>-->
             </div>
-        </div><!-- End list of locations and search input -->
+        </div>
     </div>
 
     <div id="map-canvas"></div>
-
-
-
-
 
 
 
@@ -54,6 +63,7 @@
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/knockout/dist/knockout.js"></script>
+    <script src="../bower_components/knockout-mapping/knockout.mapping.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -70,6 +80,10 @@
         <script src="../bower_components/bootstrap/js/scrollspy.js"></script>
         <script src="../bower_components/bootstrap/js/collapse.js"></script>
         <script src="../bower_components/bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/model.js -->
+        <!-- <script src="scripts/model.json"></script> -->
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->

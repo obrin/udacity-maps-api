@@ -1,15 +1,56 @@
-html, body, #map-canvas {
+html, body {
         height: 100%;
         margin: 0px;
-        padding: 0px
+        padding: 0px;
+        background-color: #6B7283;
       }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding-top: 10px;
+}
+
+li:hover, li:focus, li:active {
+  text-decoration: underline;
+  color: #9685BA;
+  }
+
 
 
 #map-canvas {
-  position: fixed;
+  height: 100%;
+  width: 100%;
+  float: right;
+
 }
 
-.controls {
+
+/*
+#control{
+  float: left;
+  color: #D8D8DD;
+  width: 15%;
+  padding: 50px 30px 10px 30px;
+}
+
+#control input[type=text]{
+
+  height: 40px;
+  font-size: 30px;
+  background-color: #6B7283;
+  border: 1px solid #BE757E;
+}
+*/
+
+#control {
+  position: fixed;
+  z-index: 1;
+}
+.input {
   margin-top: 16px;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
@@ -23,7 +64,7 @@ html, body, #map-canvas {
 #pac-input {
   background-color: #fff;
   padding: 0 11px 0 13px;
-  width: 400px;
+  width: 100%;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -34,7 +75,7 @@ html, body, #map-canvas {
   border-color: #4d90fe;
   margin-left: -1px;
   padding-left: 14px;  /* Regular padding-left + 1. */
-  width: 401px;
+
 }
 
 .pac-container {
@@ -61,4 +102,16 @@ html, body, #map-canvas {
     z-index: 1;
     position: fixed;
 }
+
+.cards-card {
+  margin-top: 10px;
+  clip: rect(-10px 428px 41px -10px);
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 20px 30px 20px 20px;
+  width: 300px;
+}
+
+
 
