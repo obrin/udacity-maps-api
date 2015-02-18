@@ -35,23 +35,22 @@
 
             <input id="pac-input" class="input" type="search" placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
             <div class="cards-card">
+              <h4>Top 10 Spots</h4>
                 <ul data-bind="foreach: filteredMarkers">
                     <li data-bind="text: title, click: $parent.setLocation"></li>
                 </ul>
             </div><!-- End list of locations and search input -->
 
-<!--             <div class="cards-card" data-bind="foreach: fourSquare">
+            <div class="cards-card" data-bind="foreach: foursquare">
                 <h4>Address:</h4>
-                <p data-bind="html: $root.formattedAddress"></p>
-            </div> -->
+                <p data-bind="text: location.formattedAddress"></p>
+                <h4>Contact:</h4>
+                <p data-bind="text: contact.formattedPhone"></p>
+                <h4>Rating:</h4>
+                <p data-bind="text: rating"></p>
+                <a data-bind="attr: {href: canonicalUrl}">FOURSQUARE LINK</a>
+            </div><!-- End of foursquare info card -->
 
-            <div class="cards-card" data-bind="foreach: markerArray">
-                <!-- <p data-bind="text: title, click: $parent.setLocation"></p> -->
-                <!-- <p data-bind="text: contact.formattedPhone"></p> -->
-                <!-- <h4>Here Now:</h4> -->
-                <!-- <p data-bind="text: hereNow.count"></p> -->
-                <!--<a data-bind="attr: {href: $root.facebook}, text: $root.facebook"></a>-->
-            </div>
         </div>
     </div>
 
@@ -82,14 +81,14 @@
         <script src="../bower_components/bootstrap/js/tab.js"></script>
         <!-- endbuild -->
 
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
 
         <!-- build:js scripts/apis.js -->
         <script src="scripts/apis.js"></script>
         <!-- endbuild -->
 
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
 
 </body>
 <footer>
