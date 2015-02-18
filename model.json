@@ -1,0 +1,52 @@
+{"data" : [
+        {
+            "title": "The White House",
+            "lat": 38.897947,
+            "lng": -77.036509
+        },
+        {
+            "title": "Newseum",
+            "lat": 38.893286,
+            "lng": -77.019264
+        },
+        {
+            "title": "The Studio Theatre",
+            "lat": 38.910100,
+            "lng": -77.031500
+        },
+        {
+            "title": "The National Mall",
+            "lat": 38.889841,
+            "lng": -77.022966
+        },
+        {
+            "title": "The John F. Kennedy Center for the Performing Arts",
+            "lat": 38.896010,
+            "lng": -77.055615
+        },
+        {
+            "title": "Lincoln Memorial",
+            "lat": 38.889482,
+            "lng": -77.050176
+        },
+        {
+            "title": "Washington Monument",
+            "lat": 38.889714,
+            "lng": -77.035290
+        },
+        {
+            "title": "Dupont Circle",
+            "lat": 38.909839,
+            "lng": -77.043434
+        },
+        {
+            "title": "Baked & Wired",
+            "lat": 38.904252,
+            "lng": -77.060366
+        },
+        {
+            "title": "Martin Luther King, Jr. Memorial",
+            "lat": 38.886511,
+            "lng": -77.044330
+        }
+]   }
