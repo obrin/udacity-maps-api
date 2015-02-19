@@ -36,10 +36,13 @@ var ViewModel = function(data) {
   ko.mapping.fromJS(data, locMapping, self);
 
 
-  this.markerArray = ko.observableArray([]);  // POSIBLE TO REMOVE MARKER ARRAY
+  this.markerArray = ko.observableArray([]);
+  this.titles = ko.observableArray([]);
   this.currentLocation = ko.observable('');
   this.query = ko.observable(''); // search query keyed by user
   this.foursquare = ko.observable('');
+
+
 
   // array of markers that have been filtered with user's search query
   this.filteredMarkers = ko.computed(function() {
@@ -47,6 +50,7 @@ var ViewModel = function(data) {
       return marker.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0;
     });
   }, this);
+
 
   // point loc to locations json data for easy access
   var loc = data.locations;
@@ -103,6 +107,7 @@ var ViewModel = function(data) {
 
     // set list of markers into an array
     self.markerArray.push(marker);
+    self.titles.push(loc[i].title);
 
     // when marker is clicked, set it as current location - animate and render info window
     google.maps.event.addListener(marker, 'click', (function(marker) {
@@ -139,6 +144,7 @@ var ViewModel = function(data) {
   };
 
   // request and caches foursquare data, updated into foursquare observable. on request failure, user is alerted
+  // foursquare venue data is requested by matching with venue id obtained from model.json
   this.getFoursquare = function(selection) {
     $.ajax({
       dataType: "json",
@@ -160,12 +166,16 @@ var ViewModel = function(data) {
     });
   };
 
+  // // auto complete
+  // $("#pac-input").autocomplete({
+  //   source: self.titles()
+  // });
+console.log(self.titles());
 };
 
 
 /****************
 TODO:
-responsive design
 auto-complete search bar
 handle errors
 ****************/

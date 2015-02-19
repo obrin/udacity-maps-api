@@ -21,6 +21,10 @@
       <link rel="stylesheet" href="styles/styles.css">
       <!-- endbuild -->
 
+      <!-- build:css styles/styles.css -->
+      <link rel="stylesheet" href="styles/responsive-small.css">
+      <!-- endbuild -->
+
       <!-- build:js scripts/vendor/modernizr.js -->
       <script src="../bower_components/modernizr/modernizr.js"></script>
       <!-- endbuild -->
@@ -30,10 +34,20 @@
     </head>
     <body>
 
-    <div>
-        <div id="control">
-
-            <input id="pac-input" class="input" type="search" placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
+      <header>
+        <div class="header__inner">
+          <input id="pac-input" class="input" type="search" placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="on">
+          <a id="menu" class="header__menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+            </svg>
+            <!-- <span class="glyphicons glyphicons-chevron-right"></span> -->
+          </a>
+        </div>
+      </header>
+    <main>
+      <div id="main">
+          <div id="control">
             <div class="cards-card">
               <h4>Top 10 Spots</h4>
                 <ul data-bind="foreach: filteredMarkers">
@@ -41,7 +55,7 @@
                 </ul>
             </div><!-- End list of locations and search input -->
 
-            <div class="cards-card" data-bind="foreach: foursquare">
+            <div class="cards-card foursquare" data-bind="foreach: foursquare">
                 <h4>Address:</h4>
                 <p data-bind="text: location.formattedAddress"></p>
                 <h4>Contact:</h4>
@@ -50,12 +64,34 @@
                 <p data-bind="text: rating"></p>
                 <a data-bind="attr: {href: canonicalUrl}">FOURSQUARE LINK</a>
             </div><!-- End of foursquare info card -->
-
+            </div>
         </div>
-    </div>
+      </main>
+      <div id="map-canvas"></div>
 
-    <div id="map-canvas"></div>
 
+
+    <script>
+      /*
+       * Open the drawer when the menu ison is clicked.
+       */
+      var menu = document.querySelector('#menu');
+      var main = document.querySelector('#map-canvas');
+      var ul = document.querySelector('ul');
+      var drawer = document.querySelector('#main');
+
+      menu.addEventListener('click', function(e) {
+        drawer.classList.toggle('open');
+        e.stopPropagation();
+      });
+      main.addEventListener('click', function() {
+        drawer.classList.remove('open');
+      });
+      ul.addEventListener('click', function() {
+        drawer.classList.remove('open');
+      });
+
+    </script>
 
 
     <!-- build:js scripts/vendor.js -->
