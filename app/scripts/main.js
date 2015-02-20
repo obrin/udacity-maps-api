@@ -5,7 +5,7 @@
 
 // when document is ready, request dataset and pass it into ViewModel if successful
 // alert is given when ajax request has failed
-$(document).ready(function() {
+// $(document).ready(function() {
   $.ajax({
     dataType: "json",
     url: "model.json",
@@ -19,7 +19,7 @@ $(document).ready(function() {
       alert('something went wrong');
     }
   });
-})
+
 
 
 var ViewModel = function(data) {
@@ -46,6 +46,11 @@ var ViewModel = function(data) {
       return marker.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0;
     });
   }, this);
+  //this.content = ko.computed(function() {
+  //  return self.foursquare()
+  //})
+
+
 
 
   // point loc to locations json data for easy access
@@ -116,14 +121,13 @@ var ViewModel = function(data) {
     if (self.currentLocation() === selection ) {
       self.removeLocation();                                // if location is selected the second time in a row it is unselected
     } else {
+      self.getFoursquare(selection);                        // gets foursquare json data on current location
       self.removeLocation();
       self.currentLocation(selection);                      // set location to what has been selected
       selection.setAnimation(google.maps.Animation.BOUNCE); // animate selection to bounce
       infowindow.setContent(selection.title);               // set content of selected marker's info window
       infowindow.open(map, selection);                      // render info window of selected marker
       //map.panTo(selection.position);                      // set center of screen to selected marker
-      self.getFoursquare(selection);                        // gets foursquare json data on current location
-      console.log(selection);
     }
   };
 
@@ -136,7 +140,7 @@ var ViewModel = function(data) {
       infowindow.close();
     };
   };
-
+  var fs;
   // request and caches foursquare data, updated into foursquare observable. on request failure, user is alerted
   // foursquare venue data is requested by matching with venue id obtained from model.json
   this.getFoursquare = function(selection) {
@@ -151,8 +155,6 @@ var ViewModel = function(data) {
       type: "GET",
       success: function(q) {
         self.foursquare(q.response.venue);
-        console.log(self.foursquare());
-        //console.log(q.response);
       },
       error: function() {
         alert('unable to retrieve information');
