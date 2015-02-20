@@ -1,6 +1,5 @@
-
-
 @media screen and (max-width: 549px) {
+
 	.header__menu {
 	  margin-top: 0;
 	  display: inline-block;
@@ -35,6 +34,5 @@
 	  -webkit-transform: translate(0, 0);
 	  transform: translate(0, 0);
 	}
-
 
 }

@@ -3,21 +3,23 @@
   * @author Jordan Yong jordanyong23@gmail.com
   */
 
-// request dataset and pass it into ViewModel if successful
+// when document is ready, request dataset and pass it into ViewModel if successful
 // alert is given when ajax request has failed
-$.ajax({
-  dataType: "json",
-  url: "model.json",
-  type: "GET",
-  success: function(response) {
-    model = new ViewModel(response);
-    ko.applyBindings(model);
-    //console.log(model);
-  },
-  error: function() {
-    alert('something went wrong');
-  }
-});
+$(document).ready(function() {
+  $.ajax({
+    dataType: "json",
+    url: "model.json",
+    type: "GET",
+    success: function(response) {
+      model = new ViewModel(response);
+      ko.applyBindings(model);
+      //console.log(model);
+    },
+    error: function() {
+      alert('something went wrong');
+    }
+  });
+})
 
 
 var ViewModel = function(data) {
@@ -30,19 +32,13 @@ var ViewModel = function(data) {
     'copy': ['title', 'loc', 'lat', 'id']
   }
 
-
-
   // map model.json dataset to ViewModel
   ko.mapping.fromJS(data, locMapping, self);
 
-
   this.markerArray = ko.observableArray([]);
-  this.titles = ko.observableArray([]);
   this.currentLocation = ko.observable('');
   this.query = ko.observable(''); // search query keyed by user
   this.foursquare = ko.observable('');
-
-
 
   // array of markers that have been filtered with user's search query
   this.filteredMarkers = ko.computed(function() {
@@ -90,7 +86,6 @@ var ViewModel = function(data) {
   // render info window
   var infowindow = new google.maps.InfoWindow();
 
-
   // generates characteristics of each marker and stores them in an array
   // add an event listener to set clicked marker as current location (setLocation())
   var marker, i;
@@ -107,7 +102,6 @@ var ViewModel = function(data) {
 
     // set list of markers into an array
     self.markerArray.push(marker);
-    self.titles.push(loc[i].title);
 
     // when marker is clicked, set it as current location - animate and render info window
     google.maps.event.addListener(marker, 'click', (function(marker) {
@@ -165,17 +159,4 @@ var ViewModel = function(data) {
       }
     });
   };
-
-  // // auto complete
-  // $("#pac-input").autocomplete({
-  //   source: self.titles()
-  // });
-console.log(self.titles());
 };
-
-
-/****************
-TODO:
-auto-complete search bar
-handle errors
-****************/
