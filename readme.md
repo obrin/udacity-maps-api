@@ -2,9 +2,9 @@
 Udacity Neighborhood map project
 
 ###Overview
-The map covers the top 10 foursquare locations in Washington DC.
-The project was built using knockout.js MVVM pattern, jquery, google maps api, foursquare venue api.
-This project can be view at (http://projects.jordanyong.com/udacity-maps-api)
+The map covers the top 10 foursquare locations in Washington DC.<br>
+The project was built using knockout.js MVVM pattern, jquery, google maps api, foursquare venue api.<br>
+This project can be view at http://projects.jordanyong.com/udacity-maps-api
 
 ###Features
 - Google Maps API
@@ -32,17 +32,17 @@ This project can be view at (http://projects.jordanyong.com/udacity-maps-api)
 
 
 ###Reference
-[Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
-[Foursquare Venue API](https://developer.foursquare.com/overview/venues.html)
-[Search Box Filter](http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html)
-[KnockoutJS Mappings](http://marcofranssen.nl/knockout-js-mappings/)
-[KnockoutJS](http://knockoutjs.com/documentation/introduction.html)
+[Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)<br>
+[Foursquare Venue API](https://developer.foursquare.com/overview/venues.html)<br>
+[Search Box Filter](http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html)<br>
+[KnockoutJS Mappings](http://marcofranssen.nl/knockout-js-mappings/)<br>
+[KnockoutJS](http://knockoutjs.com/documentation/introduction.html)<br>
 [jQuery](http://api.jquery.com/)
 
 
 ###Tools Used
-[knockoutJS](http://knockoutjs.com/)
-[jQueury](http://jquery.com/)
-[yeoman.iknoo](http://yeoman.io/)
-[bower.io](http://bower.io/)
+[knockoutJS](http://knockoutjs.com/)<br>
+[jQueury](http://jquery.com/)<br>
+[yeoman.iknoo](http://yeoman.io/)<br>
+[bower.io](http://bower.io/)<br>
 [gulp.js](http://gulpjs.com/)
