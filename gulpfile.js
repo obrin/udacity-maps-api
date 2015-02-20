@@ -81,6 +81,30 @@ gulp.task('serve', ['connect', 'watch'], function () {
   require('opn')('http://localhost:9000');
 });
 
+// serve dist folder
+gulp.task('connectDist', function () {
+  var serveStatic = require('serve-static');
+  var serveIndex = require('serve-index');
+  var dist = require('connect')()
+    .use(require('connect-livereload')({port: 35729}))
+    // .use(serveStatic('.tmp'))
+    .use(serveStatic('dist'))
+    // paths to bower_components should be relative to the current file
+    // e.g. in app/index.html you should use ../bower_components
+    // .use('/bower_components', serveStatic('bower_components'))
+    .use(serveIndex('dist'));
+
+  require('http').createServer(dist)
+    .listen(9000)
+    .on('listening', function () {
+      console.log('Started connect web server on http://localhost:9000');
+    });
+});
+
+gulp.task('serveDist', ['connectDist'], function () {
+  require('opn')('http://localhost:9000');
+});
+
 // inject bower components
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
