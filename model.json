@@ -1,52 +1,64 @@
-{"data" : [
+{
+    "locations" : [
         {
             "title": "The White House",
             "lat": 38.897947,
-            "lng": -77.036509
+            "lng": -77.036509,
+            "id": "3fd66200f964a520d6f01ee3"
         },
         {
             "title": "Newseum",
             "lat": 38.893286,
-            "lng": -77.019264
+            "lng": -77.019264,
+            "id": "4a451851f964a520c5a71fe3"
         },
         {
             "title": "The Studio Theatre",
             "lat": 38.910100,
-            "lng": -77.031500
+            "lng": -77.031500,
+            "id": "4ac54205f964a5203ab120e3"
         },
         {
             "title": "The National Mall",
             "lat": 38.889841,
-            "lng": -77.022966
+            "lng": -77.022966,
+            "id": "49c2fff9f964a5204d561fe3"
         },
         {
             "title": "The John F. Kennedy Center for the Performing Arts",
             "lat": 38.896010,
-            "lng": -77.055615
+            "lng": -77.055615,
+            "id": "45a0aae9f964a520cc401fe3"
         },
         {
             "title": "Lincoln Memorial",
             "lat": 38.889482,
-            "lng": -77.050176
+            "lng": -77.050176,
+            "id": "4a4fbaecf964a520a0af1fe3"
         },
         {
             "title": "Washington Monument",
             "lat": 38.889714,
-            "lng": -77.035290
+            "lng": -77.035290,
+            "id": "40ce3c00f964a5201b011fe3"
         },
         {
             "title": "Dupont Circle",
             "lat": 38.909839,
-            "lng": -77.043434
+            "lng": -77.043434,
+            "id": "40bd1880f964a520bc001fe3"
         },
         {
             "title": "Baked & Wired",
             "lat": 38.904252,
-            "lng": -77.060366
+            "lng": -77.060366,
+            "id": "49bfffd0f964a5203c551fe3"
         },
         {
             "title": "Martin Luther King, Jr. Memorial",
             "lat": 38.886511,
-            "lng": -77.044330
+            "lng": -77.044330,
+            "id": "4bc9f0850687ef3bc7d0dacc"
         }
-]   }
+    ]
+}
