@@ -6,22 +6,20 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
       <title>Top 10 Places in Washington DC</title>
 
-      <!-- build:css styles/vendor.css -->
-      <!-- bower:css -->
-      <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"   />
-      <!-- endbower -->
-      <!-- endbuild -->
-
       <!-- build:css styles/styles.css -->
       <link rel="stylesheet" href="styles/styles.css">
       <!-- endbuild -->
 
       <!-- build:css styles/responsive-small.css -->
-      <link rel="stylesheet" href="styles/responsive-small.css">
+      <link rel="stylesheet" media="screen and (max-width: 549px)" href="styles/responsive-small.css">
+      <!-- endbuild -->
+
+      <!-- build:css styles/responsive-large.css -->
+      <link rel="stylesheet" media="screen and (min-width: 1024px)" href="styles/responsive-large.css">
       <!-- endbuild -->
 
       <!-- build:js scripts/vendor/modernizr.js -->
-      <script src="../bower_components/modernizr/modernizr.js"></script>
+      <script async src="../bower_components/modernizr/modernizr.js"></script>
       <!-- endbuild -->
 
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script>
@@ -89,9 +87,9 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/knockout/dist/knockout.js"></script>
-    <script src="../bower_components/knockout-mapping/knockout.mapping.js"></script>
+    <script async src="../bower_components/jquery/dist/jquery.js"></script>
+    <script async src="../bower_components/knockout/dist/knockout.js"></script>
+    <script async src="../bower_components/knockout-mapping/knockout.mapping.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
