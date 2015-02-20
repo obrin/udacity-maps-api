@@ -43,6 +43,6 @@ This project can be view at http://projects.jordanyong.com/udacity-maps-api
 ###Tools Used
 [knockoutJS](http://knockoutjs.com/)<br>
 [jQuery](http://jquery.com/)<br>
-[yeoman.iknoo](http://yeoman.io/)<br>
+[yeoman.io](http://yeoman.io/)<br>
 [bower.io](http://bower.io/)<br>
 [gulp.js](http://gulpjs.com/)
