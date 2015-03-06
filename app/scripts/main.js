@@ -14,7 +14,7 @@ $(document).ready(function() {
       ko.applyBindings(new ViewModel(response));
     },
     error: function() {
-      $('main').append('<span class="error center">Failed to retrieve data</span>')
+      $('main').append('<span class="error">Failed to retrieve data</span>')
     }
   });
 });

@@ -97,18 +97,15 @@ p {
 }
 
 .error {
-  z-index: 20;
-  color: white;
+  z-index: 12;
+  color: #fff;
   text-align: center;
   font-size: 32px;
-}
-
-.center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}​
+}
 
 .cards-card {
   margin-top: 5px;
