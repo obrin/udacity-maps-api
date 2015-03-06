@@ -4,5 +4,6 @@ dist
 .sass-cache
 bower_components
 test
+gh_pages
 dist_gh-pages
 improvements.md
