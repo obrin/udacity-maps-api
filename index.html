@@ -18,7 +18,7 @@
     </script> <script src=scripts/vendor.js></script> <script src=scripts/main.js></script> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script> <!--handles google maps API error--> <script>
       setTimeout(function() {
         if(!window.google || !window.google.maps) {
-          $('main').append('<span class="error center">Failed to connect to google maps API</span>')
+          $('main').append('<span class="error">Failed to connect to google maps API</span>')
         }
       }, 2000);
-    </script> </body> <footer> </footer> </html>
+    </script> </body> <footer> </footer> </html> 
