@@ -91,7 +91,8 @@
     <script>
       setTimeout(function() {
         if(!window.google || !window.google.maps) {
-          $('main').append('<span class="error">Failed to connect to google maps API</span>')
+          $('main').append('<span class="error">Failed to connect to google maps API</span>');
+          alert('google maps API could not be reached');
         }
       }, 2000);
     </script>

@@ -14,7 +14,8 @@ $(document).ready(function() {
       ko.applyBindings(new ViewModel(response));
     },
     error: function() {
-      $('main').append('<span class="error">Failed to retrieve data</span>')
+      $('main').append('<span class="error">Failed to retrieve data</span>');
+      alert('Failed to retrieve data');
     }
   });
 });
@@ -159,8 +160,8 @@ var ViewModel = function(data) {
       },
       // informs user of failed data retrieval in info window
       error: function() {
-        alert('unable to connect to foursquare API');
         infowindow.setContent("Failed to retrieve content...");
+        alert('unable to connect to foursquare API');
       }
     });
   };
