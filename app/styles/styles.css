@@ -96,6 +96,20 @@ p {
   transform: translate(0, 0);
 }
 
+.error {
+  z-index: 20;
+  color: white;
+  text-align: center;
+  font-size: 32px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}​
+
 .cards-card {
   margin-top: 5px;
   clip: rect(-10px 428px 41px -10px);
@@ -117,8 +131,5 @@ p {
     width: 32px;
     fill: #E0E0E0;
 }
-
-
-
 
 
