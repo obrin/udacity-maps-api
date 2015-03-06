@@ -1,7 +1,5 @@
-<!doctype html> <html class=no-js> <head> <meta charset=utf-8> <meta name=description> <meta name=viewport content="width=device-width, initial-scale=1, minimal-ui"> <title>Top 10 Places in Washington DC</title> <link rel=stylesheet href=styles/styles.css> <link rel=stylesheet href=styles/responsive-small.css> <link rel=stylesheet href=styles/responsive-large.css> <script src=scripts/vendor/modernizr.js></script> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script> </head> <body> <header> <div class=header__inner> <input id=pac-input class=input type=search placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete> <a id=menu class=header__menu> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"> <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path> </svg> <!--<span class="glyphicons glyphicons-chevron-right"></span>--> </a> </div> </header> <main> <div id=main> <div id=control> <div class=cards-card> <h4>Top 10 Spots</h4> <ul data-bind="foreach: filteredMarkers"> <li data-bind="text: title, click: $parent.setLocation"></li> </ul> </div><!--End list of locations and search input--> <div class="cards-card foursquare" data-bind="foreach: foursquare"> <h4>Address:</h4> <p data-bind="text: location.formattedAddress"></p> <h4>Contact:</h4> <p data-bind="text: contact.formattedPhone"></p> <h4>Rating:</h4> <p data-bind="text: rating"></p> <a data-bind="attr: {href: canonicalUrl}">FOURSQUARE LINK</a> </div><!--End of foursquare info card--> </div> </div> </main> <div id=map-canvas></div> <script>
-      /*
-       * Open the drawer when the menu ison is clicked.
-       */
+<!doctype html> <html class=no-js> <head> <meta charset=utf-8> <meta name=description> <meta name=viewport content="width=device-width, initial-scale=1, minimal-ui"> <title>Top 10 Places in Washington DC</title> <link rel=stylesheet href=styles/styles.css> <link rel=stylesheet href=styles/responsive-small.css> <link rel=stylesheet href=styles/responsive-large.css> <script src=scripts/vendor/modernizr.js></script> </head> <body> <header> <div class=header__inner> <input id=pac-input class=input type=search placeholder="Search Box" data-bind="value: query, valueUpdate: 'keyup'" autocomplete> <a id=menu class=header__menu> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"> <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path> </svg> <!--<span class="glyphicons glyphicons-chevron-right"></span>--> </a> </div> </header> <main> <div id=main> <div id=control> <div class=cards-card> <h4>Top 10 Spots</h4> <ul data-bind="foreach: filteredMarkers"> <li data-bind="text: title, click: $parent.setLocation"></li> </ul> </div><!--End list of locations and search input--> </div> </div> </main> <div id=map-canvas></div> <script>
+      // toggles the navigation drawer when the menu icon is clicked
       var menu = document.querySelector('#menu');
       var main = document.querySelector('#map-canvas');
       var ul = document.querySelector('ul');
@@ -17,4 +15,10 @@
       ul.addEventListener('click', function() {
         drawer.classList.remove('open');
       });
-    </script> <script src=scripts/vendor.js></script> <script src=scripts/main.js></script> </body> <footer> </footer> </html> 
+    </script> <script src=scripts/vendor.js></script> <script src=scripts/main.js></script> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ-mLxEFbeZssGzbaokc83WY6meUkWum0&libraries=places&sensor=false"></script> <!--handles google maps API error--> <script>
+      setTimeout(function() {
+        if(!window.google || !window.google.maps) {
+          $('main').append('<span class="error center">Failed to connect to google maps API</span>')
+        }
+      }, 2000);
+    </script> </body> <footer> </footer> </html> 
