@@ -5,34 +5,32 @@
 
 // when document is ready, request dataset and pass it into ViewModel if successful
 // alert is given when ajax request has failed
-// $(document).ready(function() {
+$(document).ready(function() {
   $.ajax({
     dataType: "json",
     url: "model.json",
     type: "GET",
     success: function(response) {
-      model = new ViewModel(response);
-      ko.applyBindings(model);
-      //console.log(model);
+      ko.applyBindings(new ViewModel(response));
     },
     error: function() {
-      alert('something went wrong');
+      $('main').append('<span class="error center">Failed to retrieve data</span>')
     }
   });
-
+});
 
 
 var ViewModel = function(data) {
   var self = this;
 
-  /** customize mapping options
-   * @copy copy datasets as values, not wrapping to observable (no change in datasets)
-   */
+  // customize knockout mapping options and copy datasets as values for optimization.
+  // will not wrap to an observable and may not be interacted in the view
   var locMapping = {
     'copy': ['title', 'loc', 'lat', 'id']
   }
 
   // map model.json dataset to ViewModel
+  // dependencies: "knockout.mapping.js"
   ko.mapping.fromJS(data, locMapping, self);
 
   this.markerArray = ko.observableArray([]);
@@ -46,19 +44,12 @@ var ViewModel = function(data) {
       return marker.title.toLowerCase().indexOf(self.query().toLowerCase()) >= 0;
     });
   }, this);
-  //this.content = ko.computed(function() {
-  //  return self.foursquare()
-  //})
-
-
-
 
   // point loc to locations json data for easy access
   var loc = data.locations;
 
   // render markers that match search query
   this.filteredMarkers.subscribe(function() {
-
     // clears all markers
     self.markerArray().forEach(function(marker) {
       marker.setMap(null);
@@ -89,7 +80,9 @@ var ViewModel = function(data) {
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   // render info window
-  var infowindow = new google.maps.InfoWindow();
+  var infowindow = new google.maps.InfoWindow({
+    maxWidth: 200
+  });
 
   // generates characteristics of each marker and stores them in an array
   // add an event listener to set clicked marker as current location (setLocation())
@@ -125,9 +118,8 @@ var ViewModel = function(data) {
       self.removeLocation();
       self.currentLocation(selection);                      // set location to what has been selected
       selection.setAnimation(google.maps.Animation.BOUNCE); // animate selection to bounce
-      infowindow.setContent(selection.title);               // set content of selected marker's info window
       infowindow.open(map, selection);                      // render info window of selected marker
-      //map.panTo(selection.position);                      // set center of screen to selected marker
+      map.panTo(selection.position);                        // set center of screen to selected marker
     }
   };
 
@@ -140,7 +132,7 @@ var ViewModel = function(data) {
       infowindow.close();
     };
   };
-  var fs;
+
   // request and caches foursquare data, updated into foursquare observable. on request failure, user is alerted
   // foursquare venue data is requested by matching with venue id obtained from model.json
   this.getFoursquare = function(selection) {
@@ -154,10 +146,21 @@ var ViewModel = function(data) {
 
       type: "GET",
       success: function(q) {
-        self.foursquare(q.response.venue);
+        var venue = q.response.venue;
+        var addressArray = venue.location.formattedAddress;
+        var address = addressArray.join(",<br>");
+
+        // set content for info window: venue name, address, rating
+        infowindow.setContent(
+          "<h3>" + venue.name + "</h3><br>" +
+          "<span>" + address + "</span><br>" +
+          "<b> Rating: "  + venue.rating + "</b>"
+        );
       },
+      // informs user of failed data retrieval in info window
       error: function() {
-        alert('unable to retrieve information');
+        alert('unable to connect to foursquare API');
+        infowindow.setContent("Failed to retrieve content...");
       }
     });
   };
