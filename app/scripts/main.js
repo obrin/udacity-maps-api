@@ -16,7 +16,7 @@ $(document).ready(function() {
     error: function() {
       $('main').append('<span class="error">Failed to retrieve data</span>');
       alert('Failed to retrieve data');
-    }
+    };
   });
 });
 
@@ -28,7 +28,7 @@ var ViewModel = function(data) {
   // will not wrap to an observable and may not be interacted in the view
   var locMapping = {
     'copy': ['title', 'loc', 'lat', 'id']
-  }
+  };
 
   // map model.json dataset to ViewModel
   // dependencies: "knockout.mapping.js"
@@ -134,6 +134,11 @@ var ViewModel = function(data) {
     };
   };
 
+  // foursquare access credentials
+  var fs_client_id = "JZZWQ2GOQCFO4J1R03HFTPFMOTNMTQFRGV5XQ2S0KHQYPVMZ";
+  var fs_client_secret = "HC1KWRSYXWW5TBRBPW4DKDPH4TEXEVAZQK34GXLW2X1D315G";
+  var fs_v = "20130815";
+
   // request and caches foursquare data, updated into foursquare observable. on request failure, user is alerted
   // foursquare venue data is requested by matching with venue id obtained from model.json
   this.getFoursquare = function(selection) {
@@ -141,9 +146,9 @@ var ViewModel = function(data) {
       dataType: "json",
       cache: true,
       url: "https://api.foursquare.com/v2/venues/" + selection.id + "?"
-      + "client_id=" + "JZZWQ2GOQCFO4J1R03HFTPFMOTNMTQFRGV5XQ2S0KHQYPVMZ"
-      + "&client_secret=" + "HC1KWRSYXWW5TBRBPW4DKDPH4TEXEVAZQK34GXLW2X1D315G"
-      + "&v=" + "20130815",
+      + "client_id=" + fs_client_id
+      + "&client_secret=" + fs_client_secret
+      + "&v=" + fs_v,
 
       type: "GET",
       success: function(q) {
