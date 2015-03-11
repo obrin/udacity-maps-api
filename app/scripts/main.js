@@ -16,7 +16,7 @@ $(document).ready(function() {
     error: function() {
       $('main').append('<span class="error">Failed to retrieve data</span>');
       alert('Failed to retrieve data');
-    };
+    }
   });
 });
 
@@ -134,7 +134,7 @@ var ViewModel = function(data) {
     };
   };
 
-  // foursquare access credentials
+  // foursquare access
   var fs_client_id = "JZZWQ2GOQCFO4J1R03HFTPFMOTNMTQFRGV5XQ2S0KHQYPVMZ";
   var fs_client_secret = "HC1KWRSYXWW5TBRBPW4DKDPH4TEXEVAZQK34GXLW2X1D315G";
   var fs_v = "20130815";
