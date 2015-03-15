@@ -6,3 +6,4 @@ gh_pages
 dist_gh-pages
 improvements.md
 old
+node_modules
