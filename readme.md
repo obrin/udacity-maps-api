@@ -4,7 +4,7 @@ Udacity Neighborhood map project
 ###Overview
 The map covers the top 10 foursquare locations in Washington DC.<br>
 The project was built using knockout.js MVVM pattern, jquery, google maps api, foursquare venue api.<br>
-This project can be view at http://blog.jordanyong.com/projects/<br>
+This project can be view at http://obrin.github.io/udacity-maps-api/<br>
 Minified version of the file can be downloaded from the gh-branch
 
 ###Installation
